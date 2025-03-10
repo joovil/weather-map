@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "start-db": "docker-compose up",
-    "enter-db": "docker exec -it weather-map-db psql -U postgres",
+    "enter-db": "docker exec -it weatherdb psql -U postgres",
     "start-api": "uvicorn api.main:app --reload",
     "lint": "next lint"
   },

@@ -8,8 +8,18 @@
 
 /* Light mode */
 :root {
-  --background: #9dcdc0;
+  --background: theme(colors.blueM);
   --foreground: black;
+
+  --sun: theme(colors.sun);
+  --shade: theme(colors.shade);
+
+  h2 {
+    @apply font-heavy;
+  }
+  h3 {
+    @apply text-xl font-heavy;
+  }
 }
 
 /* Dark mode overrides */
@@ -41,4 +51,8 @@ body {
 
 .leaflet-container {
   @apply h-full w-full;
+}
+
+.leaflet-popup-content-wrapper {
+  background-color: red;
 }

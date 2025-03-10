@@ -9,11 +9,11 @@ ENV_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".env.l
 load_dotenv(ENV_PATH)
 
 # Database connection parameters
-DB_NAME = os.getenv("DB_NAME")
-DB_USER = os.getenv("DB_USER")
-DB_PASSWORD = os.getenv("DB_PASS")
-DB_HOST = os.getenv("DB_HOST")
+DB_NAME = os.getenv("DB_NAME", "weatherdb")
+DB_HOST = os.getenv("DB_HOST", "localhost")
 DB_PORT = os.getenv("DB_PORT", "5432")
+DB_USER = os.getenv("DB_USER", "postgres")
+DB_PASSWORD = os.getenv("DB_PASS", "pass")
 TABLE_NAME = "weather.sensordata"  # Change this to your table name
 
 CSV_FILE = os.path.abspath(

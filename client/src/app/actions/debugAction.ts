@@ -24,10 +24,7 @@ export const testPostAction = async (startDate: Date, endDate: Date) => {
 };
 
 export const testGetAction = async () => {
-  const res = await apiFetch("/debug", {
-    method: "GET",
-  });
-
+  const res = await apiFetch("/sensors");
   const data = await res.json();
   console.log(data);
 };

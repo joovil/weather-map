@@ -1,6 +1,8 @@
 "use client";
 
-import { testGetAction, testPostAction } from "@/app/actions/debugAction";
+import { testPostAction } from "@/app/actions/debugAction";
+import { getSensorService } from "@/app/services/sensorService";
+import { SensorServiceParams } from "@/types";
 import { useState } from "react";
 
 const Debug = () => {
@@ -19,11 +21,19 @@ const Debug = () => {
   };
 
   const testGet = async () => {
-    const res = await testGetAction();
+    console.log("test");
+    const testParams: SensorServiceParams = {
+      id: "24E124136E106616",
+    };
+
+    const res = await getSensorService(testParams);
+    console.log(res);
   };
 
   return (
     <div className="">
+      <button onClick={testGet}>TEST</button>
+
       <h2>Dates</h2>
       <div className="flex gap-4">
         <form
@@ -43,7 +53,7 @@ const Debug = () => {
           />
 
           <button
-            className="mt-2 w-fit rounded-md bg-blue p-2 text-white"
+            className="bg-blue mt-2 w-fit rounded-md p-2 text-white"
             type="submit"
           >
             Submit

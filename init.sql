@@ -1,6 +1,6 @@
-CREATE DATABASE weather;
+CREATE DATABASE weatherdb;
 
-\c weather
+\c weatherdb
 
 CREATE SCHEMA IF NOT EXISTS weather;
 
@@ -9,7 +9,7 @@ SET search_path TO weather;
 
 CREATE TABLE IF NOT EXISTS weather.sensors (
     id TEXT PRIMARY KEY,
-    coords POINT,
+    location POINT,
     type TEXT,
     note TEXT,
     attached TEXT,

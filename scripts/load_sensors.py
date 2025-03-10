@@ -15,13 +15,11 @@ FOLDER_PATH = os.path.abspath(
 
 TABLE = "weather.sensors"
 
-DB_NAME = os.getenv("DB_NAME")
-DB_HOST = os.getenv("DB_HOST")
-DB_PORT = os.getenv("DB_PORT")
-DB_USER = os.getenv("DB_USER")
-DB_PASS = os.getenv("DB_PASS")
-
-print(DB_HOST)
+DB_NAME = os.getenv("DB_NAME", "weatherdb")
+DB_HOST = os.getenv("DB_HOST", "localhost")
+DB_PORT = os.getenv("DB_PORT", "5432")
+DB_USER = os.getenv("DB_USER", "postgres")
+DB_PASS = os.getenv("DB_PASS", "pass")
 
 
 def insert_sensor(cursor, id, lon, lat, type, note, attached, install_date):
@@ -62,6 +60,7 @@ def load_sensors():
 
                     except (json.JSONDecodeError, KeyError) as e:
                         print(f"Error processing file {filename}: {e}")
+                print("Sensors loaded successfully")
     except psycopg2.DatabaseError as e:
         print(f"Database error: {e}")
 
